@@ -1,0 +1,12 @@
+<div class="consoleOutput">
+<p>Enter the value of x (in radians): 0.0<br />cos(0.0) = 1.0<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 1</span>
+<p>Enter the value of x (in radians): 0.7853981634<br />cos(0.7853981634) = 0.70710680568149<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 1</span>
+<p>Enter the value of x (in radians): 1.570796327<br />cos(1.570796327) = -4.6497111258537687E-7<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 1</span>
+<p>Enter the value of x (in radians): 3.141592654<br />cos(3.141592654) = -0.9999998647395547<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 1</span>
+<p>Enter the value of x (in radians): 4.71238898<br />cos(4.71238898) = 5.533598320419583E-7<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 1</span>
+<p>Enter the value of x (in radians): 6.283185307<br />cos(6.283185307) = 1.0000013329315738<br /><br /></p>
