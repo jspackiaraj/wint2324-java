@@ -1,0 +1,14 @@
+<div class="consoleOutput">
+<!-- Run 1 --><span style="color: grey;">Run 1 - case 0&deg;</span>
+<p>Enter the value of x (in radians): 0.0<br />sin(0.0) = 0.0<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 2 - case 45&deg;</span>
+<p>Enter the value of x (in radians): 0.7853981634<br />sin(0.7853981634) = 0.7071064695769824<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 3 - case 90&deg;</span>
+<p>Enter the value of x (in radians): 1.570796327<br />sin(1.570796327) = 0.9999999437410506<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 4 - case 180&deg;</span>
+<p>Enter the value of x (in radians): 3.141592654<br />sin(3.141592654) = -7.73196098675832E-7<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 5 - case 270&deg;</span>
+<p>Enter the value of x (in radians): 4.71238898<br />sin(4.71238898) = -1.0000025759875684<br /><br /></p>
+<!-- Run 1 --><span style="color: grey;">Run 6 - case 360&deg;</span>
+<p>Enter the value of x (in radians): 6.283185307<br />sin(6.283185307) = -5.4945633662504585E-6<br /><br /></p>
+</div>
