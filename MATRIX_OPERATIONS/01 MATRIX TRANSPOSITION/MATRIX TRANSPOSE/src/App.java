@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -17,11 +16,10 @@ public class App {
                 double determinant = CalculateDeterminant.calculate(matrix);
                 System.out.printf("Determinant of the matrix is: %.3f\n", determinant);
 
-                // Optionally calculate and display the inverse if needed
                 if (determinant != 0) {
-                    List<List<Double>> inverse = CalculateInverse.calculate(matrix);
+                    Matrix inverseMatrix = CalculateInverse.calculate(matrix);
                     System.out.println("Inverse of the matrix is:");
-                    MatrixPrinter.printMatrix(inverse);
+                    MatrixPrinter.printMatrix(inverseMatrix); // Updated to use a Matrix object
                 } else {
                     System.out.println("Matrix does not have an inverse (determinant is 0).");
                 }
