@@ -1,5 +1,3 @@
-Certainly! Below, I have formatted your programming assignment using GitHub-friendly Markdown to ensure that it displays nicely on the platform. This includes using code fences for source code segments and appropriate Markdown techniques to represent matrices and program outputs.
-
 ### Programming Assignment: 3D Rotation of a Line Segment
 
 #### Objective:
