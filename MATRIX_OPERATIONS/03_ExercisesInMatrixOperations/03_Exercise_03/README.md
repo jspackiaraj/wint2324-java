@@ -1,82 +1,81 @@
-### Question - 01 Matrix Operations
-You have a set of class files that can be used to perform various matrix operations. 
-#### Part A - Matrix Display
-**Objective**: Write a Java program named `App.java`, which uses the supplied class files and performs the following operations:
 
-1. **Read a Matrix:**
-   - Utilize the `MatrixFileReader` class to read matrix data from a CSV file named "matrix.txt". The CSV file contains numerical data representing the matrix elements where each row of the matrix is on a separate line, and each element within the row is separated by a comma (`,`). For example, a 2x2 matrix would be represented as follows in "matrix.txt":
-     ```
-     1.0,2.0
-     3.0,4.0
-     ```
-   - Assume "matrix.txt" is correctly formatted and located in the same directory as `App.java`.
+### Programming Assignment: Solving Systems of Linear Equations Using Matrix Operations
 
-2. **Print the Matrix:**
-   - Use the `MatrixPrinter` class to display the matrix data read from the file on the console.
+#### Objective:
+Develop a Java program (`App.java`) that reads a set of linear equations formatted as an augmented matrix from a file, processes this data to solve the equations using matrix inversion, and prints the solution. The solution should utilize the custom Java classes provided and demonstrate understanding of matrix operations.
 
-Ensure that your program in `App.java`, excluding JavaDoc comments and blank lines, does not exceed 15 lines of code.
+#### Assignment Details:
 
-#### Part B - Matrix Scalar Multiplication
-**Objective**: Extend the `App.java` program from Part A by incorporating the following functionality:
+##### Part A: Setup and Input
+1. **Read the Augmented Matrix:**
+   - Use the `MatrixFileReader` class to import an \(n \times (n+1)\) matrix from a file named `equations.csv`. This file should contain the coefficients of the variables followed by the constant terms for each equation, all separated by commas.
 
-3. **Matrix Scalar Multiplication:**
-   - After displaying the original matrix, prompt the user to input a scalar value from the console.
-   - Multiply the original matrix by the scalar using the `MultiplyMatrixByScalar` class.
+##### Part B: Matrix Manipulation
+2. **Validate Matrix Format:**
+   - Ensure the matrix has \(n + 1\) columns for \(n\) rows, confirming it's properly augmented.
 
-4. **Output the Resulting Matrix:**
-   - Print the resulting matrix (after scalar multiplication) using the `MatrixPrinter` class.
+3. **Extract Coefficients and Constants:**
+   - Use logical indexing to divide the augmented matrix into:
+     - A coefficient matrix \(A\) (first \(n\) columns).
+     - A constants vector \(B\) (last column).
 
-The complete program must still adhere to the 15-line code limit (excluding JavaDoc comments and blank lines).
+##### Part C: Solving the Equations
+4. **Compute the Inverse of the Coefficient Matrix:**
+   - Call `CalculateInverse.calculate(Matrix A)` to find the inverse of matrix \(A\).
 
-### Solution to the Problem
+5. **Calculate the Solution Vector:**
+   - Employ `MatrixMultiplication.multiply(Matrix A, Matrix B)` to multiply the inverse of the coefficient matrix by the constants vector, yielding the solution vector \(X\).
 
-Below is the Java code for `App.java` that meets all the specified requirements in the question:
+##### Part D: Output the Results
+6. **Display the Results:**
+   - Output the solution vector \(X\) using the `MatrixPrinter.printMatrix(Matrix X)` method to print the results to the console.
 
-```java
-import java.util.Scanner;
+##### Part E: Error Handling
+7. **Handle Exceptions and Validate Input:**
+   - Include error handling for file-not-found exceptions, incorrect matrix dimensions, and arithmetic errors (such as trying to invert a non-invertible matrix). Use appropriate error messages to guide correction.
 
-public class App {
-    public static void main(String[] args) {
-        Matrix matrix = MatrixFileReader.read("matrix.txt"); // Read matrix from CSV file
-        MatrixPrinter.print(matrix);                         // Print the original matrix
-        
-        Scanner scanner = new Scanner(System.in);            // Scanner for user input
-        System.out.print("Enter a scalar value: ");          // Prompt for scalar input
-        double scalar = scanner.nextDouble();                // Read scalar value from console
-        
-        Matrix scaledMatrix = MultiplyMatrixByScalar.multiply(matrix, scalar); // Scale matrix
-        MatrixPrinter.print(scaledMatrix);                   // Print scaled matrix
-        scanner.close();                                     // Close scanner to prevent leaks
-    }
-}
+#### Instructions:
+- Implement the program in `App.java` using the methods and classes described.
+- Thoroughly comment your code to explain your logic and the functions used.
+- Ensure your program gracefully handles any errors and provides informative messages for debugging.
+
+### Sample Equations for a 4x4 System
+
+
+#### Given Equations:
+
+1. **Equation 1:**
+   \[ x_1 + 2x_2 + 3x_3 + 4x_4 = 20 \]
+2. **Equation 2:**
+   \[ 2x_1 + 3x_2 + 7x_3 + 8x_4 = 40 \]
+3. **Equation 3:**
+   \[ 3x_1 + 5x_2 + 12x_3 + 1x_4 = 30 \]
+4. **Equation 4:**
+   \[ 4x_1 + 11x_2 + 1x_3 + 3x_4 = 50 \]
+
+This set of equations is designed to have a non-zero determinant when formed into a coefficient matrix. The variation in coefficients, especially in the third and fourth equations, helps ensure that the matrix columns are not linearly dependent.
+
+### Corresponding `equations.csv` File Content:
+
+To use these equations in your program, format them into a CSV file like this:
+
+```plaintext
+1,2,3,4,20
+2,3,7,8,40
+3,5,12,1,30
+4,11,1,3,50
 ```
 
-#### Explanation
-- **Lines 1-3:** Necessary imports for the functionality (Scanner for input).
-- **Line 5:** The `main` method - entry point of the program.
-- **Line 6:** Reads the matrix from the specified CSV file "matrix.txt".
-- **Line 7:** Prints the original matrix to standard output.
-- **Lines 9-10:** Creates a Scanner for reading console input and prompts the user.
-- **Line 11:** Captures the scalar value entered by the user.
-- **Line 13:** Multiplies the original matrix by the scalar.
-- **Line 14:** Prints the resulting matrix after multiplication.
-- **Line 15:** Closes the Scanner to free up resources.
+Each row represents one equation with the coefficients for \(x_1, x_2, x_3,\) and \(x_4\) followed by the constant on the right side of the equation.
 
-## Getting Started
+### Using These Equations in `App.java`
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Ensure your `App.java` is set up to read this CSV file, extract the necessary matrices, and solve the equations using your matrix inversion method. Here is a brief reminder of how `App.java` could handle this:
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Additional Tips
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- **Validate the Determinant:** Before applying the matrix inversion, you might want to check if the determinant of the coefficient matrix is indeed non-zero if your matrix classes support this calculation. This can prevent runtime errors related to non-invertible matrices.
+- **Testing:** It's a good practice to test the application with various sets of equations to ensure that it handles different scenarios correctly, including those with zero and non-zero determinants.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
