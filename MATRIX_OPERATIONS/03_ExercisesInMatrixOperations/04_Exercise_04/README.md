@@ -1,3 +1,5 @@
+Certainly! Below, I have formatted your programming assignment using GitHub-friendly Markdown to ensure that it displays nicely on the platform. This includes using code fences for source code segments and appropriate Markdown techniques to represent matrices and program outputs.
+
 ### Programming Assignment: 3D Rotation of a Line Segment
 
 #### Objective:
@@ -7,7 +9,7 @@ Develop a Java program (`App.java`) to perform a 3D rotation on a line segment b
 
 ##### Part A: Read Input Data
 1. **Input File:**
-   - Use the `MatrixFileReader` class to load line endpoint coordinates (x1, y1, z1, x2, y2, z2) and rotation angles (alpha, beta, theta) from `linecoordinates.txt`.
+   - Use the `MatrixFileReader` class to load line endpoint coordinates (`x1, y1, z1, x2, y2, z2`) and rotation angles (`alpha, beta, theta`) from `linecoordinates.txt`.
 
 ##### Part B: Setup Rotation Matrices and Perform Calculations
 2. **Convert Angles from Degrees to Radians:**
@@ -23,33 +25,29 @@ Develop a Java program (`App.java`) to perform a 3D rotation on a line segment b
    - Use the `MatrixPrinter` class to output the new coordinates of the rotated line segment's endpoints.
 
 #### Example Input (`linecoordinates.txt`):
-```
+```plaintext
 0, 0, 0, 0, 1, 0, 90, 0, 0
 ```
-This input specifies a line segment from (0, 0, 0) to (0, 1, 0) with a 90-degree rotation about the X-axis, and no rotation about the Y or Z axes.
+This input specifies a line segment from `(0, 0, 0)` to `(0, 1, 0)` with a 90-degree rotation about the X-axis, and no rotation about the Y or Z axes.
 
 #### Explanation of Transformations:
 
-The provided rotation angles are applied to a line segment using the following rotation matrices:
+The provided rotation angles are applied to a line segment using the following ASCII-style representation of rotation matrices:
 
 - **Rotation around the X-axis (Roll) by 90 degrees:**
-  \[
-  R_x(90^\circ) = \begin{bmatrix}
-  1 & 0 & 0 \\
-  0 & 0 & -1 \\
-  0 & 1 & 0
-  \end{bmatrix}
-  \]
+  ```
+  R_x(90°) = |  1  0  0 |
+             |  0  0 -1 |
+             |  0  1  0 |
+  ```
   This rotation moves points in the YZ-plane; Y becomes Z and Z becomes -Y.
 
 - **No rotation around the Y-axis (Pitch) and Z-axis (Yaw):**
-  \[
-  R_y = R_z = \begin{bmatrix}
-  1 & 0 & 0 \\
-  0 & 1 & 0 \\
-  0 & 0 & 1
-  \end{bmatrix}
-  \]
+  ```
+  R_y = R_z = |  1  0  0 |
+              |  0  1  0 |
+              |  0  0  1 |
+  ```
 
 After applying these rotations, the initial endpoint \(P_2\) at (0, 1, 0) transforms to (0, 0, 1), showing that it has moved along the Z-axis due to the rotation about the X-axis.
 
@@ -66,10 +64,9 @@ Rotated Line Endpoints:
 1.0
 ```
 
-This output reflects that the second endpoint of the line has rotated into the position (0, 0, 1), confirming the effect of the 90-degree rotation about the X-axis as calculated.
+This output reflects that the second endpoint of the line has rotated into the position `(0, 0, 1)`, confirming the effect of the 90-degree rotation about the X-axis as calculated.
 
 ---
 
-#### Please note: ####
-
-Although the number of lines of code may seem long in `App.java`, the lines of code are broken up to ensure readability.
+**Note:**
+Although the number of lines of code may seem long in `App.java`, the lines of code are broken up to ensure readability and clear understanding of the steps involved in the process.
